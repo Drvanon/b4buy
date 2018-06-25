@@ -27,14 +27,20 @@ class Building:
             for in_item in self.ins:
                 self.stock.remove(in_item)
 
+    def add_connection
+
 class Connection:
-    def __init__(self, distance, building1, building2):
+    def __init__(self, distance, app, building1, building2):
         self.distance = distance
-        self.buildings = (building1, building2)
+        self.buildings = set((building1, building2))
         if not self in building1.connections:
-            building1.connections.add_connection(self)
-            building2.connections.add_connection(self)
+            building1.connections.append(self)
+            building2.connections.append(self)
+            app.connections.append(self)
 
     def destroy(self):
         self.buildings[0].connections.remove(self)
         self.buildings[1].connections.remove(self)
+
+    def __eq__(self, other):
+        self.buildings == other.buildings

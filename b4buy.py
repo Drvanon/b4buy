@@ -23,6 +23,7 @@ class App:
         }
 
         self.buildings = [Building(self.settings, 'warehouse', (0,0))]
+        self.connections = []
 
         self.set_up_commands()
 
