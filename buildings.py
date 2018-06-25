@@ -9,12 +9,21 @@ class Building:
         self.ins = sets['ins']
         self.outs = sets['outs']
         self.speed = sets['speed']
+        self.materials = sets['materials']
 
         self.producing = False
 
         self.frames_since_last_produce = self.speed
 
         self.connections = []
+        self.built = False
+
+    def build(self):
+        mats = self.materials.copy()
+        for material in self.materials:
+            self.stock.remove(material)
+            mats.remove(material)
+        self.materials = mats
 
     def produce(self):
         self.producing = True
@@ -26,8 +35,6 @@ class Building:
         if self.producing:
             for in_item in self.ins:
                 self.stock.remove(in_item)
-
-    def add_connection
 
 class Connection:
     def __init__(self, distance, app, building1, building2):

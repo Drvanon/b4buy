@@ -6,11 +6,17 @@ buildings:
             - wood
         speed:
             48
+        materials: []
     warehouse:
         ins: []
         outs: []
         speed: 0
+        materials:
+            - wood
+            - wood
+            - stone
 items:
     types:
-        wood:
+        wood: {}
+        stone: {}
 
