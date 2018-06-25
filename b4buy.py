@@ -33,9 +33,6 @@ class App:
         modes = pygame.display.list_modes()
         self.screen = pygame.display.set_mode(modes[0])
 
-    def set_up_commands(self):
-        self.commands = []
-
     def run(self):
         running = True
         pygame.time.set_timer(pygame.USEREVENT, round(1000/self.fps))
@@ -81,7 +78,11 @@ class App:
             pygame.display.flip()
 
     def run_command(self):
-        pass
+        comlist = self.console_text.split()
+        if comlist:
+            if comlist[0] == 'build':
+                if len(comlist) > 2:
+                    building_type = comlist[1]
 
     def show_console(self):
         if self.console_mode in  ['insert', 'view']:
