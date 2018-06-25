@@ -1,0 +1,12 @@
+buildings:
+    types:
+        woodcutter:
+            ins:
+            outs:
+                - wood
+            speed:
+                48
+items:
+    types:
+        wood:
+
