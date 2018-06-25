@@ -24,12 +24,17 @@ class App:
 
         self.buildings = [Building(self.settings, 'warehouse', (0,0))]
 
+        self.set_up_commands()
+
         self.run()
 
     def get_screen(self):
         logging.info('Getting display')
         modes = pygame.display.list_modes()
         self.screen = pygame.display.set_mode(modes[0])
+
+    def set_up_commands(self):
+        self.commands = []
 
     def run(self):
         running = True
@@ -65,8 +70,13 @@ class App:
                     for building in self.buildings:
                         building.produce()
 
-            if pygame.key.get_pressed()[pygame.K_BACKSPACE] and self.console_mode == 'insert':
+            pressed_keys = pygame.key.get_pressed()
+            if pressed_keys[pygame.K_BACKSPACE] and self.console_mode == 'insert':
                 self.console_text = self.console_text[:-1]
+            if self.console_mode == 'view' and not pressed_keys[pygame.K_v]:
+                self.console_mode = 'normal'
+            if pygame.key.get_pressed()[pygame.K_v] and self.console_mode == 'normal':
+                self.console_mode = 'view'
 
             pygame.display.flip()
 
@@ -74,7 +84,7 @@ class App:
         pass
 
     def show_console(self):
-        if self.console_mode == 'insert':
+        if self.console_mode in  ['insert', 'view']:
             self.screen.fill(WHITE, [0, 0, 300, 200])
             pygame.draw.line(self.screen, BLACK, (3, 30), (297, 30))
             text_surf = self.fonts['console_font'].render(
