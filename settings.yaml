@@ -1,11 +1,15 @@
+fps: 20
 buildings:
-    types:
-        woodcutter:
-            ins:
-            outs:
-                - wood
-            speed:
-                48
+    woodcutter:
+        ins: []
+        outs:
+            - wood
+        speed:
+            48
+    warehouse:
+        ins: []
+        outs: []
+        speed: 0
 items:
     types:
         wood:

@@ -6,9 +6,9 @@ class Building:
         self.stock = []
 
         sets = settings['buildings'][building_type]
-        self.ins = sets.ins
-        self.outs = sets.outs
-        self.speed = sets.speed
+        self.ins = sets['ins']
+        self.outs = sets['outs']
+        self.speed = sets['speed']
 
         self.producing = False
 
