@@ -24,6 +24,36 @@ nail_maker:
 box_maker:
   educts:
     planks: 6
-    nails: 100
+    nails: 50
   products:
     boxes: 1
+clay_pit:
+  educts: {}
+  products:
+    clay_lump: 1
+ceramic_shop_jar:
+  educts:
+    clay_lump: 1
+  products:
+    clay_jar: 5
+olive_farm_jar:
+  educts:
+    clay_jar: 1
+  products:
+    olive_clay_jar: 1
+wheat_farm:
+  educts: {}
+  products:
+    wheat_bundle: 10
+wheat_mill_jar:
+  educts:
+    wheat_bundle: 10
+    clay_jar: 1
+  products:
+    flour_clay_jar: 1
+wheat_baker:
+  educts:
+    flour_clay_jar: 1
+  products:
+    bread: 1
+    clay_jar: 1

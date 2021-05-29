@@ -1,11 +1,13 @@
 import click
 import yaml
+from pprint import pprint
 from yaml import Loader
 from graphviz import Digraph
 
 @click.command()
 @click.argument('input_file', type=click.File())
-def visualize_scheme(input_file):
+@click.option('--verbose', '-v', is_flag=True)
+def visualize_scheme(input_file, verbose):
     buildings = yaml.load(input_file, Loader=Loader)
 
     all_producers = {
@@ -32,7 +34,13 @@ def visualize_scheme(input_file):
         for producer in all_producers[product]
         for consumer in consumers
     ]
-    pprint(edges)
+    if verbose:
+        print('Consumers:')
+        pprint(all_consumers)
+        print('Producers:')
+        pprint(all_producers)
+        print('Edges:')
+        pprint(edges)
 
     dot = Digraph()
     for building in buildings.keys():
