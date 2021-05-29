@@ -1,0 +1,29 @@
+wood_cutter:
+  educts: {}
+  products:
+    logs: 1
+saw_mill:
+  educts:
+    logs: 1
+  products:
+    planks: 1
+iron_mine:
+  educts: {}
+  products:
+    iron_ore: 1
+iron_smelter:
+  educts:
+    iron_ore: 1
+  products:
+    iron_ingot: 1
+nail_maker:
+  educts:
+    iron_ingot: 1
+  products:
+    nails: 50
+box_maker:
+  educts:
+    planks: 6
+    nails: 100
+  products:
+    boxes: 1
