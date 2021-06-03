@@ -6,7 +6,8 @@ class Order:
         self.products21 = products21
 
     def execute(self):
-        if not building1.has_sufficient(products12) or not building2.has_sufficient(products21):
+        if (not self.building1.has_sufficient(self.products12)) or \
+                not self.building2.has_sufficient(products21):
             return False
         for product, count in storage12.items():
             building1.storage[product] -= count
