@@ -1,9 +1,10 @@
 from datetime import datetime
 
 class Contract:
-    def __init__(self, player1, player2, money_transfer, order, frequency, start_date=None, end_date=None):
+    def __init__(self, player1, player2, money_transfer, order, frequency, end_date=None, start_date=None):
         self.player1 = player1
         self.player2 = player2
+        self.money_transfer = money_transfer
         self.completed = False
         self.order = order
         self.frequency = frequency
